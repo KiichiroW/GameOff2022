@@ -1,0 +1,68 @@
+Intro Text:  #name replaces name
+
+Narrator
+-1
+Today is a Monday, your first new day at a school you've recently transferred into.
+Suddenly, you hear a loud noise quickly approaching...
+
+???
+-1
+Ooooooooooiiiiiiii!!!
+
+Player
+-1
+Who can that be... so loud at 7 in the morning.
+
+Childhood-chan
+0
+So long no see! How long has it been since we've seen each other #name!
+
+Player
+-1
+Oh it's just Childhood-chan.
+
+Childhood-chan
+0
+What do you mean its just me!?
+How can you not be excited about our reunion. Seems like your the same as always #name.
+
+Player
+-1
+Eh yea, I guess. Anyway I'm gonna head out, I don't wanna be late.
+
+Childhood-chan
+0
+Hehehehe, I wonder if your going to be transferring into my class. The chances huh...
+
+
+
+Maybe make this the next scene
+
+Narrator
+-1
+As you enter your classroom, you abruptly bump heads with someone.
+
+Tsun-chan
+1
+OWWWWWW!!!
+
+Player
+-1
+My bad...
+
+Tsun-chan
+1
+MY BAD??!? YOU SLAM YOUR HEAD INTO MINE AND THAT'S ALL YOU SAY???
+MY BAD?!?!?!?!
+
+Player
+-1
+Hey calm down, I really didn't mean to do that.
+
+Tsun-chan
+1
+I just got my hair all pretty too...
+
+Narrator
+-1
+She walks away angrily, giving you the side-eye with every step of the way.
