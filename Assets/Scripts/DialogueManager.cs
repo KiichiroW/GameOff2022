@@ -7,35 +7,40 @@ using System.IO;
 
 public class DialogueManager : MonoBehaviour
 {
-    // Singleton
-    public static DialogueManager Instance { get; private set; }
-
+    #region Public Members
     [Header("Text Managing")]
     [SerializeField] private string path;
     [SerializeField] private TextMeshProUGUI textbox;
     [SerializeField] private TextMeshProUGUI namebox;
+    [SerializeField] private DialoguePlayer dialoguePlayer;
 
-    // Dialogue
-    private string dialogue;
-    private string nextLine;
-    private string charName;
-    [SerializeField] private string playerName;
-
-    // Dialogue Settings
+    [Header("Dialogue Settings")]
     [SerializeField] private int charLimit;
-    // speed
-    // insta skip
+    [SerializeField] private float textSpeed;
+
+    [Header("Art Managing")]
+    [SerializeField] private SpriteRenderer girlSprite;
+    [SerializeField] private Sprite[] sprites;
+    #endregion
+
+
+    #region Private Members
+    // Singleton
+    public static DialogueManager Instance { get; private set; }
 
     // Reader
     private StreamReader reader;
 
-    // Art Interaction
-    [SerializeField] private SpriteRenderer girlSprite;
-    [SerializeField] private Sprite[] sprites;
+    // Dialogue Managing
+    private string dialogue; // All dialogue text
+    private string nextLine; // Next line to be showed
+    private string charName; // Character Name
+    [SerializeField] private string playerName; // Player's name
+    #endregion
 
     private void Awake()
     {
-        // If Instance exists and isn't this one - destroy it
+        // Creates singleton
         if (Instance != null && Instance != this)
         {
             Destroy(this);
@@ -69,22 +74,21 @@ public class DialogueManager : MonoBehaviour
         // Progress dialogue
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
-            // maybe try not to use a try in a game, intensive
-            try
-            {
-                GetNextLine();
-            }
-            catch (Exception e)
-            {
-                Debug.Log(e.Message);
-            }
+            GetNextLine();
         }
     }
 
     private void GetNextLine()
     {
         // Reads next line
-        nextLine = reader.ReadLine();
+        try 
+        {
+            nextLine = reader.ReadLine();
+        }
+        catch (Exception e)
+        {
+            Debug.Log("Failed to read line: " + e.Message);
+        }
 
         // Display next line if present
         if (nextLine != null)
@@ -100,7 +104,8 @@ public class DialogueManager : MonoBehaviour
             else
             {
                 InsertName();
-                textbox.text = nextLine;
+                //textbox.text = nextLine;
+                dialoguePlayer.PlayNextLine(nextLine, textbox, textSpeed);
             }
         }
         else
